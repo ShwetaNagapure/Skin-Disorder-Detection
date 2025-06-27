@@ -19,7 +19,7 @@ An AI-powered diagnostic system that classifies various skin conditions using de
 * [Results](#results)
 * [Installation](#installation)
 * [Future Scope](#future-scope)
-* [License](#license)
+
 
 ---
 
@@ -158,4 +158,3 @@ python src/predict.py --image path/to/image.jpg
 * Extend chatbot functionality with voice interaction.
 * Support multi-modal input (text + image).
 
----
