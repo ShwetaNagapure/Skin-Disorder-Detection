@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Diagnosis Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/style.css') }}" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f8;
+            padding: 30px;
+        }
+        .container {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            max-width: 700px;
+            margin: auto;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        .image-box {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .image-box img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+        }
+        .report {
+            margin-top: 25px;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        th, td {
+            text-align: left;
+            padding: 10px 12px;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f0f0f0;
+            font-weight: 600;
+        }
+
+        /* Chatbot floating button */
+        .chatbot-button {
+            position: fixed;
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+            background-color: #007BFF;
+            color: white;
+            padding: 12px 18px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 14px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            z-index: 1000;
+        }
+
+        .main-button-container {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .main-button-container button {
+            background-color: #007BFF;
+            color: white;
+            padding: 12px 24px;
+            font-size: 16px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .main-button-container button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating button (optional) -->
+    <a href="http://10.140.65.249:8000/" target="_blank" class="chatbot-button">
+        💬 Chatbot
+    </a>
+
+    <div class="container">
+        <h1>Diagnosis Report</h1>
+
+        <div class="image-box">
+            <img src="{{ url_for('static', filename='uploads/' + filename) }}" alt="Uploaded Image" />
+        </div>
+
+        <div class="report">
+            <table>
+                <tr>
+                    <th>Patient Name</th>
+                    <td>{{ name }}</td>
+                </tr>
+                <tr>
+                    <th>Age</th>
+                    <td>{{ age }}</td>
+                </tr>
+                <tr>
+                    <th>Infection Area</th>
+                    <td>{{ infection_area }}</td>
+                </tr>
+                <tr>
+                    <th>Diagnosis</th>
+                    <td>{{ predicted_class }}</td>
+                </tr>
+                <tr>
+                    <th>Malignancy</th>
+                    <td>{{ malignancy }}</td>
+                </tr>
+                <tr>
+                    <th>Accuracy</th>
+                    <td>{{ Accuracy }}%</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Main chatbot button -->
+        <div class="main-button-container">
+            <a href="http://10.140.65.249:8000/" target="_blank">
+                <button>Open Chatbot Assistant</button>
+            </a>
+        </div>
+    </div>
+</body>
+</html>
